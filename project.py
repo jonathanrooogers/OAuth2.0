@@ -40,6 +40,21 @@ def showLogin():
     return render_template('login2.html', STATE=state)
 
 
+
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+
+
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
